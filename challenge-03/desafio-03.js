@@ -120,6 +120,7 @@ Qual a altura da pessoa? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
 pessoa.mostrarAltura();
+//'Minha altura é 1.7m.'
 
 /*
 Faça a `pessoa` fazer 3 aniversários.
@@ -154,7 +155,7 @@ pessoa.andando;
 Se a pessoa ainda está andando, faça-a parar.
 */
 if(pessoa.andando){
-    pessoa.andando = false;
+    pessoa.parar();
 }
 
 /*
@@ -168,6 +169,7 @@ Quantos metros a pessoa andou? (Use uma instrução para responder e comentário
 inline ao lado da instrução para mostrar a resposta retornada)
 */
 pessoa.caminhouQuantosMetros;
+//6
 
 /*
 Agora vamos deixar a brincadeira um pouco mais divertida! :D
@@ -193,7 +195,7 @@ pessoa.apresentacao = function(){
     var caminhada = 'metros';
     var idade = 'anos';
     
-    if( pessoa.sexo === 'Feminino' || pessoa.sexo === 'feminino' ){
+    if( pessoa.sexo === 'Feminino' ){
         sexo = 'a';
     } 
     if( pessoa.idade === 1 ){
