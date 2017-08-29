@@ -13,15 +13,16 @@ Invoque a função criada acima, passando dois números que serão somados, e mo
 o resultado no console, com a frase:
 "A soma de [VALOR 1] e [VALOR2] é igual a [RESULTADO]."
 */
-
-console.log( 'A soma de 1 e 10 é igual a ' + sum(1, 10) + '.' )
+var value1 = 10;
+var value2 = 20;
+console.log( 'A soma de ' + value1 + ' e ' + value2 + ' é igual a ' + sum(value1, value2) + '.' )
 
 /*
 Mostre no console o nome da função criada acima, com a frase:
 "O nome da função que faz a soma é [NOME DA FUNÇÃO]."
 */
 
-console.log( 'O nome da funcção que faz a soma é ' + sum.name + '.' );
+console.log( 'O nome da função que faz a soma é ' + sum.name + '.' );
 
 /*
 Crie uma função literal chamada `showName`. Essa função deve retornar o
@@ -82,7 +83,7 @@ function calculator( operacao ){
                 return 'Operação inválida!';
         }
         return 'Resultado da operação: ' + x + ' ' + operacao + ' ' + y + ' = ' + resultado + '.'
-    }
+    };
 }
 
 /*
@@ -90,13 +91,13 @@ Declare uma variável chamada `sum`, que receberá a função acima, passando co
 parâmetro o operador de soma.
 */
 
-var sum = calculator('+');
+var sum = calculator( '+' );
 
 /*
 Agora `sum` é uma função. Mostre no console a soma de dois números, usando ela.
 */
 
-console.log( sum(10, 4) );
+console.log( sum( 10, 4 ) );
 
 /*
 Agora, declare algumas variáveis com os nomes `subtraction`, `multiplication`,
