@@ -27,14 +27,14 @@ segundo parâmetro.
 */
 
 function selectIndice(arr, numero){
-    return arr[numero];
+    return arr[ numero ];
 }
 
 /*
 Declare uma variável que recebe um array com 5 valores, de tipos diferentes.
 */
 
-var newArray = [ 1, 'Daniel', undefined, NaN, false];
+var newArray = [ 1, 'Daniel', undefined, NaN, false ];
 
 /*
 Invoque a função criada acima, fazendo-a retornar todos os valores do último
@@ -81,11 +81,7 @@ function book( nomeLivro ){
         }
     }
 
-    if( nomeLivro ){
-        return livros[nomeLivro];
-    }
-
-    return livros;
+    return nomeLivro ? livros[ nomeLivro ] : livros;
 }
 
 
@@ -100,7 +96,8 @@ usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
 
-console.log( 'O livro Ajax tem ' + book('Ajax').quantidadePaginas + ' páginas!' )
+var nomeLivro = 'Ajax';
+console.log( 'O livro ' + nomeLivro + ' tem ' + book( nomeLivro ).quantidadePaginas + ' páginas!' )
 
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
@@ -108,7 +105,8 @@ a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
 
-console.log('O autor do livro PostgreSQL é ' + book('PostgreSQL').autor + '.');
+nomeLivro = 'PostgreSQL';
+console.log('O autor do livro ' + nomeLivro + ' é ' + book( nomeLivro ).autor + '.');
 
 /*
 Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando
@@ -116,4 +114,5 @@ a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
 
-console.log('O livro PHP and MySQL fou publicado pela editora ' + book('PHP and MySQL').editora + '.');
+nomeLivro = 'PHP and MySQL';
+console.log('O livro ' + nomeLivro + ' foi publicado pela editora ' + book( nomeLivro ).editora + '.');
