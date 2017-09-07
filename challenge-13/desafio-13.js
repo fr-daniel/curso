@@ -7,9 +7,9 @@
     Crie um array e mostre no console a representação em String desse array,
     usando o método visto na aula 13.
     */
-    var newArray = [ 1, 2, 3, 4, 5 ];
+  
     console.log( 'O array em formato de string é:' );
-    console.log( newArray.toString() );
+    console.log( [ 1, 2, 3, 4, 5 ].toString() );
 
     /*
     Crie 2 arrays `sul` e `sudeste`, que serão as regiões do Brasil.
@@ -32,8 +32,8 @@
     Adicione 3 novos estados da região Norte no início do array e mostre no console.
     */
 
-    brasil.unshift( 'Pará', 'Amazonas', 'Acre' );
     console.log( '\nMais estados adicionados:' );
+    brasil.unshift( 'Pará', 'Amazonas', 'Acre' );
     console.log( brasil );
 
     /*
@@ -103,8 +103,11 @@
     - `estado`: que será o estado do array `brasil`.
     */
     var newBrasil = [];
-    brasil.forEach(function( item, index, brasil ){
-         newBrasil.push( { id: index, estado: item } );
+    brasil.forEach(function( item, index ){
+         newBrasil.push( { 
+             id: index, 
+             estado: item 
+            } );
     });
 
 
@@ -146,12 +149,11 @@
     });
 
     console.log( '\nCeará está incluído em `brasil`?' );
-    
-    if( searchCeara ){
-        console.log( 'Ceará está incluído!' );
-    } else {
-        console.log( 'Ceará não foi incluído :(' );
-    }
+    console.log(
+        searchCeara 
+        ? 'Ceará está incluído!' 
+        : 'Ceará não foi incluído :('
+    );
 
     /*
     Percorra o array `newBrasil` e crie um novo array que some 1 no ID de cada
@@ -159,10 +161,14 @@
     - "[ESTADO] pertence ao Brasil."
     Atribua o novo array a uma variável chamada `map`.
     */
-    var map = newBrasil.map(function( item, index, arr ){
-        item.id += 1;
-        item.estado = item.estado + ' pertence ao Brasil.';
-        return item;
+    var map = newBrasil.map(function( item, index ){
+       /* item.id += 1;
+        item.estado += ' pertence ao Brasil.';
+        return item; */
+        return {
+            id: item.id + 1,
+            estado: item.estado + ' pertence ao Brasil.'
+        }
     });
 
     /*
