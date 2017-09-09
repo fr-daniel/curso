@@ -22,7 +22,25 @@
     adicionados à idade original (age). Esse método deverá retornar o objeto
     que será instanciado.
     */
-    // ?
+    
+    function Person( name, lastName, age ){
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+
+        this.getFullName = function getFullName(){
+            return this.name + ' ' + this.lastName;
+        }
+
+        this.getAge = function getAge(){
+            return this.age;
+        }
+
+        this.addAge = function addAge(){
+            this.age += arguments[0];
+            return this;
+        }
+    }
 
     /*
     Crie 3 novos objetos usando o construtor acima. Os objetos serão novas
@@ -31,20 +49,29 @@
     Mostre as 3 novas pessoas criadas no console (Um console.log por pessoa).
     */
     console.log( 'Novas pessoas criadas à partir de Person:' );
-    // ?
+    var daniel = new Person( 'Daniel', 'Lima', 19 );
+    var larissa = new Person( 'Larissa', 'Lima', 20 );
+    var crys = new Person( 'Cryslane', 'Silva', 10 );
+    console.log( daniel );
+    console.log( larissa );
+    console.log( crys );
 
     /*
     Mostre no console o nome completo de cada pessoa.
     */
     console.log( '\nNomes das pessoas:' );
-    // ?
+    console.log( daniel.getFullName() );
+    console.log( larissa.getFullName() );
+    console.log( crys.getFullName() );
 
     /*
     Mostre no console as idades de cada pessoa, com a frase:
     - "[NOME COMPLETO] tem [IDADE] anos."
     */
     console.log( '\nIdade das pessoas:' );
-    // ?
+    console.log( daniel.getFullName() + ' tem ' + daniel.getAge() + ' anos.' );
+    console.log( larissa.getFullName() + ' tem ' + larissa.getAge() + ' anos.' );
+    console.log( crys.getFullName() + ' tem ' + crys.getAge() + ' anos.' );
 
     /*
     Adicione alguns anos à cada pessoa, e mostre no console a nova idade de
@@ -52,5 +79,8 @@
     - "[NOME COMPLETO] agora tem [NOVA IDADE] anos."
     */
     console.log( '\nNova idade das pessoas:' );
-    // ?
+    console.log( daniel.getFullName() + ' agora tem ' + daniel.addAge(2).getAge() + ' anos.' );
+    console.log( larissa.getFullName() + ' agora tem ' + larissa.addAge(5).getAge() + ' anos.' );
+    console.log( crys.getFullName() + ' agora tem ' + crys.addAge(1).getAge(0) + ' anos.' );
+
 })();
