@@ -16,11 +16,12 @@
     nome, `username` deve receber "Desconhecido".
     Com a resposta, mostre um alert com a mensagem "Bem vindo [USERNAME]!"
     */
-    var username = prompt( 'Qual seu nome?' );
-    if( !username )
-        username = 'Desconhecido';
-    alert( 'Bem vindo ' + username );
 
+    /* var username = prompt( 'Qual seu nome?' );
+    if( !username )
+        username = 'Desconhecido'; */
+    var username = prompt( 'Qual seu nome?' ) || 'Desconhecido';
+    alert( 'Bem vindo ' + username );
 
     /*
     Agora, pergunte ao usuário "Qual o seu e-mail?", atribuindo o resultado à
@@ -32,13 +33,13 @@
     - Selecione o input de "Nome", atribuindo-o à uma variável chamada
     `$inputUsername`.
     */
-    var $inputUsername = doc.querySelector('input[type=text]');
+    var $inputUsername = doc.querySelector('input[type="text"]');
 
     /*
     - Selecione o input de "Email", atribuindo-o à uma variável chamada
     `$inputEmail`.
     */
-    var $inputEmail = doc.querySelector('input[type=email]');
+    var $inputEmail = doc.querySelector('input[type="email"]');
 
     /*
     - Selecione o campo de "Mensagem", atribuindo-o à uma variável chamada
@@ -85,20 +86,18 @@
     */
     $button.addEventListener( 'click', function( event ){
         event.preventDefault();
-        if( !$inputUsername.value ){
-            alert( 'Preencha o nome do usuário!' );
-        } else if( !$inputEmail.value ){
-            alert( 'Preencha o e-mail!' );
-        } else if( !$message.value ){
-            alert( 'Preencha a mensagem!' );
-        } else if( !isValidEmail( $inputEmail.value ) ){
-            alert( 'Entre com um e-mail válido!' );
-        } else{
-            if( confirm( 'Tem certeza que deseja enviar o formulário?' ) )
-                alert( 'Enviado com sucesso!' )
-            else   
-                alert( 'Não enviado.' );
-        }
+        if( !$inputUsername.value )
+            return alert( 'Preencha o nome do usuário!' );
+        if( !$inputEmail.value )
+            return alert( 'Preencha o e-mail!' );
+        if( !isValidEmail( $inputEmail.value ) )
+            return alert( 'Entre com um e-mail válido!' );
+        if( !$message.value )
+            return alert( 'Preencha a mensagem!' );
+        if( !confirm( 'Tem certeza que deseja enviar o formulário?' ) )
+            return alert( 'Não enviado.' );
+        
+        return alert( 'Enviado com sucesso!' );
     }, false );
 
     /*
@@ -128,7 +127,7 @@
         - "agua_@evida.br.com"
     */
     function isValidEmail( email ){
-        var regEmail = /^[\w.+]+@\w+.\w{2,}(?:.\w{2})?$/i;
+        var regEmail = /^[\w.+]+@\w+\.\w{2,}(?:\.\w{2})?$/i;
         return regEmail.test( email );   
     }
 })( window, document );
