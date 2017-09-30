@@ -7,22 +7,27 @@
     var $buttonCE = doc.querySelector('[data-js="button-ce"]');
     var $buttonEqual = doc.querySelector('[data-js="button-equal"]');
 
-    Array.prototype.forEach.call( $buttonsNumbers, function( button ){
-        button.addEventListener( 'click', handleClickNumber, false );
-    } );
+    function initialize(){
+        initEvents();
+    }
 
-    Array.prototype.forEach.call( $buttonsOperations, function( button ){
-        button.addEventListener( 'click', handleClickOperation ,false );
-    } );
-
-    $buttonCE.addEventListener( 'click', handleClickCE, false );
-    $buttonEqual.addEventListener( 'click', handleClickEqual, false );
+    function initEvents(){
+        Array.prototype.forEach.call( $buttonsNumbers, function( button ){
+            button.addEventListener( 'click', handleClickNumber, false );
+        } );
+    
+        Array.prototype.forEach.call( $buttonsOperations, function( button ){
+            button.addEventListener( 'click', handleClickOperation ,false );
+        } );
+    
+        $buttonCE.addEventListener( 'click', handleClickCE, false );
+        $buttonEqual.addEventListener( 'click', handleClickEqual, false );
+    }
 
     function handleClickNumber( event ){
         if( $visor.value === '0' )
-            $visor.value = this.value;
-        else 
-            $visor.value += this.value;
+            return $visor.value = this.value;
+        $visor.value += this.value;
     }
 
     function handleClickOperation( event ){
@@ -36,8 +41,8 @@
 
     function handleClickEqual( event ){
         removeLastItemIfIsAnOperation();
-        divisionOrMultiplication();
-        adicaoOrSubtracao();
+        realizarDivisionOrMultiplication();
+        realizarAdicaoOrSubtracao();
     }
 
     function isLastItemAnOperation(){
@@ -66,21 +71,23 @@
                 return 0;
         }
     }
-
-    function divisionOrMultiplication(){
+    
+    function realizarDivisionOrMultiplication(){
         $visor.value = $visor.value.replace(/(\d+|\d+\.\d+)([x÷])(\d+|\d+\.\d+)/, function( regex, valor1, operation, valor2 ){
             return realizarOperation( operation, valor1, valor2 );
         } );
         if( /[x÷]/.test( $visor.value ) )
-            return divisionOrMultiplication();
+            return realizarDivisionOrMultiplication();
     }
 
-    function adicaoOrSubtracao(){
+    function realizarAdicaoOrSubtracao(){
         $visor.value = $visor.value.replace(/(\d+|\d+\.\d+)([+\-])(\d+|\d+\.\d+)/, function( regex, valor1, operation, valor2 ){
             return realizarOperation( operation, valor1, valor2 );
         });
         if( /[+\-]/.test( $visor.value ) )
-            return adicaoOrSubtracao();
+            return realizarAdicaoOrSubtracao();
     }
     
+    initialize();
+
 })( window, document );
