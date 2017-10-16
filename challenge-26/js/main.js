@@ -17,7 +17,7 @@
            Element = 1
            Text = 3
            Comments = 8
-           documentFragment = 22
+           documentFragment = 11
 
     element.nodeValue : retorna o conteúdo textual do elemento
     element.nodeName : retorna o nome do nó
