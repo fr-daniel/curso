@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desafio 28</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">    
+</head>
+<body>
+    <div class="container mt-3">
+        <p class="h3 pl-3">Cadastrar Endereço</p>
+        <hr>
+        <form action="" method="post" data-js="form-cep" class="form-inline">
+            <div class="form-group mx-sm-3">
+                <input type="text" placeholder="CEP" data-js="cepUser" class="form-control">
+            </div>
+            <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+        </form>
+        <div data-js="status" class="pl-3 mt-3"> </div>
+        <hr>
+        <p class="h4 pl-3 mt-3">Endereço:</p>
+        <form class="pl-3" data-js="camposEndereco">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLogradouro" class="col-form-label">Logradouro</label>
+                    <input type="text" id="inputLogradouro" data-js="inputLogradouro" class="form-control" placeholder="Logradouro">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputBairro" class="col-form-label">Bairro</label>
+                    <input type="text" id="inputBairro"  data-js="inputBairro" class="form-control" placeholder="Bairro">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="inputEstado" class="col-form-label">Estado</label>
+                    <input type="text" id="inputEstado" data-js="inputEstado" class="form-control" placeholder="Estado">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="inputCidade" class="col-form-label">Cidade</label>
+                    <input type="text" id="inputCidade"  data-js="inputCidade" class="form-control" placeholder="Cidade">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputCep" class="col-form-label">Cep</label>
+                    <input type="text" id="inputCep"  data-js="inputCep" class="form-control" placeholder="Cep">
+                </div>
+            </div>
+            <div class="form-row ml-1">
+                <button class="btn btn-success"><i class="fa fa-check"></i> Cadastrar</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/b7ce5ee967.js"></script>
+    <script src="./dom.js"></script>
+    <script src="./desafio-28.js"></script>
+</body>
+</html>
