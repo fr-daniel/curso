@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-
+  
   /*
   Vamos estruturar um pequeno app utilizando módulos.
   Nosso APP vai ser um cadastro de carros. Vamos fazê-lo por partes.

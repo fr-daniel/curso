@@ -80,4 +80,4 @@
 
     win.DOM = DOM;
 
-})( window, document)
+})( window, document);
