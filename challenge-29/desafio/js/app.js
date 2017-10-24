@@ -7,6 +7,21 @@
 
         $buttonCadastrar.get()[0].addEventListener( 'click', handleCarInfo, false );
 
+        (function handleInfoEmpresa(){
+            ajax.open( 'GET', 'js/company.json' );
+            ajax.send();
+            ajax.addEventListener( 'readystatechange', handleStateChange , false );
+        })();
+
+        function handleStateChange(){
+            if( isRequestOk() )
+                setInfoEmpresa( JSON.parse( ajax.responseText ) );
+        }
+
+        function isRequestOk(){
+            return ajax.readyState === 4 && ajax.status === 200;
+        }
+        
         function handleCarInfo( event ){
             event.preventDefault();
             setCarInfo( getInforCar() );
@@ -40,21 +55,6 @@
             $corpoTable.get()[0].appendChild( fragment );
         }
 
-        (function handleInfoEmpresa(){
-            ajax.open( 'GET', 'js/company.json' );
-            ajax.send();
-            ajax.addEventListener( 'readystatechange', handleStateChange , false );
-        })();
-
-        function handleStateChange(){
-            if( isRequestOk() )
-                setInfoEmpresa( JSON.parse( ajax.responseText ) );
-        }
-
-        function isRequestOk(){
-            return ajax.readyState === 4 && ajax.status === 200;
-        }
-
         function setInfoEmpresa( objectInfoEmpresa ){
             var $infoEmpresa = new DOM('[data-js="infoEmpresa"]');
             var fragment = doc.createDocumentFragment();
@@ -71,8 +71,7 @@
 
             fragment.appendChild( $divNameEmpresa );
             $infoEmpresa.get()[0].appendChild( fragment);
-        }
-        
+        }   
     }
 
     window.app = app();
